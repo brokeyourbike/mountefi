@@ -9,11 +9,10 @@ import (
 	"howett.net/plist"
 )
 
-const sudoMountOsVersion = "10.13.6"
+const efi = "efi"
 
-func init() {
-	version.Must(version.NewSemver(sudoMountOsVersion))
-}
+// const appleApfs = "apple_apfs"
+// const appleCorestorage = "apple_corestorage"
 
 type DiskInfo struct {
 	Content                   string `plist:"Content"`
@@ -24,9 +23,18 @@ type DiskInfo struct {
 	VolumeUUID                string `plist:"VolumeUUID"`
 	ParentWholeDisk           string `plist:"ParentWholeDisk"`
 	WholeDisk                 bool   `plist:"WholeDisk"`
+	MountPoint                string `plist:"MountPoint"`
 	FilesystemName            string `plist:"FilesystemName"`
 	FilesystemUserVisibleName string `plist:"FilesystemUserVisibleName"`
 	FilesystemType            string `plist:"FilesystemType"`
+}
+
+func (d *DiskInfo) IsMounted() bool {
+	return d.MountPoint != ""
+}
+
+func (d *DiskInfo) IsEfi() bool {
+	return strings.ToLower(d.Content) == efi
 }
 
 type Disks []DiskInfo
@@ -88,4 +96,18 @@ func GetMountedVolumes() ([]string, error) {
 		return nil, err
 	}
 	return strings.Split(strings.TrimRight(string(raw), "\n"), "\n"), nil
+}
+
+func MountDisk(disk DiskInfo, withSudo bool) error {
+	cmd := exec.Command("diskutil", "mount", disk.DeviceIdentifier)
+	if withSudo {
+		cmd = exec.Command("sudo", "diskutil", "mount", disk.DeviceIdentifier)
+	}
+	_, err := cmd.Output()
+	return err
+}
+
+func UnmountDisk(disk DiskInfo) error {
+	_, err := exec.Command("diskutil", "unmount", disk.DeviceIdentifier).Output()
+	return err
 }
