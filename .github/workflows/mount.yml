@@ -1,0 +1,27 @@
+name: mount
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 5
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
+
+    - name: Build
+      run: go build -o mountefi
+
+    - name: Show Volumes
+      run: ./mountefi volumes
