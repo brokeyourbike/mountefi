@@ -25,3 +25,6 @@ jobs:
 
     - name: Show Volumes
       run: ./mountefi volumes
+    
+    - name: Mount volume
+      run: ./mountefi mount disk1s5s1
