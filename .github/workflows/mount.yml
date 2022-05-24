@@ -9,8 +9,11 @@ on:
 jobs:
 
   mount:
-    runs-on: macos-latest
+    runs-on: ${{ matrix.operating-system }}
     timeout-minutes: 5
+    strategy:
+      matrix:
+        operating-system: [macos-10.15, macos-11, macos-12]
 
     steps:
     - uses: actions/checkout@v3
