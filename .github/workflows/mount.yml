@@ -30,4 +30,4 @@ jobs:
       run: ./mountefi volumes
 
     - name: Mount volume
-      run: ./mountefi mount disk1s5s1
+      run: ./mountefi mount "Macintosh HD"
