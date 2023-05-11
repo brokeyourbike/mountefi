@@ -17,14 +17,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: Set up Go
-      uses: actions/setup-go@v3
+    - uses: actions/setup-go@v3
       with:
         go-version: 1.18
-
-    - name: Build
-      run: go build -o mountefi
+    - run: go build -o mountefi
 
     - name: Show Volumes
       run: ./mountefi volumes
