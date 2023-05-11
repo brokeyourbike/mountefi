@@ -1,6 +1,5 @@
 # mountefi
 
-[![Latest Version](https://img.shields.io/github/v/release/brokeyourbike/mountefi)](https://github.com/brokeyourbike/mountefi/releases)
 [![Go Reference](https://pkg.go.dev/badge/github.com/brokeyourbike/mountefi.svg)](https://pkg.go.dev/github.com/brokeyourbike/mountefi)
 [![Go Report Card](https://goreportcard.com/badge/github.com/brokeyourbike/mountefi)](https://goreportcard.com/report/github.com/brokeyourbike/mountefi)
 [![Maintainability](https://api.codeclimate.com/v1/badges/94e83790ba593e90029a/maintainability)](https://codeclimate.com/github/brokeyourbike/mountefi/maintainability)
