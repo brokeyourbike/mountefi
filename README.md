@@ -13,3 +13,9 @@ EFI Mounting utility with no dependencies written in Golang.
 Instead of parsing unparsable plist returned from the `diskutil list -plist` command like the original [MountEFI](https://github.com/corpnewt/MountEFI) is doing, we fetching `AllDisks` property (contains a list of disks), and then calling `diskutil info -plist <disk>` for each of the disks concurrently.
 
 Of course this approach can be a bit slower, but `diskutil info -plist <disk>` returning much more predictable plist format.
+
+## Authors
+- [Ivan Stasiuk](https://github.com/brokeyourbike) | [Twitter](https://twitter.com/brokeyourbike) | [LinkedIn](https://www.linkedin.com/in/brokeyourbike) | [stasi.uk](https://stasi.uk)
+
+## License
+[BSD-3-Clause License](https://github.com/brokeyourbike/mountefi/blob/main/LICENSE)
