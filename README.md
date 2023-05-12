@@ -13,11 +13,11 @@ Instead of parsing unparsable plist returned from the `diskutil list -plist` com
 
 Of course this approach can be a bit slower, but `diskutil info -plist <disk>` returning much more predictable plist format.
 
-## Thanks
-https://github.com/corpnewt/MountEFI
-
 ## Authors
 - [Ivan Stasiuk](https://github.com/brokeyourbike) | [Twitter](https://twitter.com/brokeyourbike) | [LinkedIn](https://www.linkedin.com/in/brokeyourbike) | [stasi.uk](https://stasi.uk)
+
+## Thanks
+https://github.com/corpnewt/MountEFI
 
 ## License
 [BSD-3-Clause License](https://github.com/brokeyourbike/mountefi/blob/main/LICENSE)
